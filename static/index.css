@@ -1,0 +1,136 @@
+.head {
+    margin: 30px 0;
+}
+
+.head p {
+    text-align: center;
+}
+
+.head p:nth-child(1) {
+    font-size: 55px;
+    color: green;
+    line-height: 10px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.head p:nth-child(2) {
+    font-size: 40px;
+    line-height: 10px;
+    font-weight: 900;
+    color: #198e4a;
+    letter-spacing: 20px;
+}
+
+.head p:nth-child(3) {
+    font-size: 20px;
+    line-height: 10px;
+    font-weight: 900;
+    color: #198e4a;
+}
+
+.cross {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cross .hide {
+    visibility: hidden;
+}
+
+.cross .cross-item {
+    width: 14.28%;
+    border: 1px solid green;
+    box-sizing: border-box;
+    padding: 1px;/* 绿色覆盖范围 */
+    position: relative;
+}
+
+.cross .cross-item .item-gb {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    left: calc(50% - 30px);
+    top: calc(50% - 30px);
+    font-size: 10px;
+    font-weight: 900;
+    opacity: 9;
+    color: lightseagreen;
+    z-index: 1;
+    cursor: pointer;
+
+}
+
+/* .cross .cross-item:nth-child(2), .cross .cross-item:nth-child(3), .cross .cross-item:nth-child(5), .cross .cross-item:nth-child(8) {
+    border-top: 6px solid green;
+}
+
+.cross .cross-item:nth-child(9), .cross .cross-item:nth-child(12), .cross .cross-item:nth-child(14), .cross .cross-item:nth-child(15) {
+    border-bottom: 6px solid green;
+}
+
+.cross .cross-item:nth-child(2), .cross .cross-item:nth-child(5), .cross .cross-item:nth-child(9), .cross .cross-item:nth-child(14) {
+    border-left: 6px solid green;
+}
+
+.cross .cross-item:nth-child(3), .cross .cross-item:nth-child(8), .cross .cross-item:nth-child(12), .cross .cross-item:nth-child(15) {
+    border-right: 6px solid green;
+} */
+
+
+.cross .cross-item:nth-child(3), .cross .cross-item:nth-child(4), .cross .cross-item:nth-child(5), .cross .cross-item:nth-child(15), .cross .cross-item:nth-child(16) ,.cross .cross-item:nth-child(20),.cross .cross-item:nth-child(21){
+    border-top: 3px solid green;
+}
+
+.cross .cross-item:nth-child(29), .cross .cross-item:nth-child(30), .cross .cross-item:nth-child(34), .cross .cross-item:nth-child(35) ,.cross .cross-item:nth-child(45), .cross .cross-item:nth-child(46), .cross .cross-item:nth-child(47){
+    border-bottom: 3px solid green;
+}
+
+.cross .cross-item:nth-child(3), .cross .cross-item:nth-child(10), .cross .cross-item:nth-child(15), .cross .cross-item:nth-child(22),.cross .cross-item:nth-child(29),.cross .cross-item:nth-child(38) ,.cross .cross-item:nth-child(45){
+    border-left: 3px solid green;
+}
+
+.cross .cross-item:nth-child(5), .cross .cross-item:nth-child(12), .cross .cross-item:nth-child(21), .cross .cross-item:nth-child(28), .cross .cross-item:nth-child(35), .cross .cross-item:nth-child(40), .cross .cross-item:nth-child(47)  {
+    border-right: 3px solid green;
+}
+
+
+
+.cross .cross-item table {
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.cross .cross-item table thead {
+    border-bottom: 1px solid #dddddd;
+}
+
+.cross .cross-item table thead tr td,
+.cross .cross-item table tbody tr td {
+    text-align: center;
+    line-height: 28px;
+    cursor: pointer;
+	font-size: 10px;
+	color:#fff;
+	
+}
+
+.footer {
+
+    margin: 3px 0;
+}
+
+.footer p {
+    font-size: 20px;
+	color:#fff;
+}
+
+.footer p span {
+    text-decoration: underline;
+}

@@ -1,0 +1,1129 @@
+{% load staticfiles %}
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>可视化大数据展示平台</title>
+
+
+    <!-- 引入 echarts.js -->
+    <script src="{%static 'echarts.js'%}"></script>
+<!--<link href="{%static 'main.d77a81dd.css'%}" rel="stylesheet" type="text/css"/>-->
+
+    <!--网页自动刷新js-->
+<script language="JavaScript">
+function myrefresh() {
+window.location.reload();
+}
+setTimeout('myrefresh()', 300000); //指定1秒刷新一次-->
+</script>
+
+<!--绿十字所需js和css-->
+
+  <link rel="stylesheet" href="{%static 'index.css'%}">
+  <!--欢迎按钮js函数  -->
+<script type="text/javascript">
+<!--欢迎词js-->
+function f1(){
+if(document.getElementById('welcome').style.display=='none'){
+document.getElementById('welcome').style.display='block'
+}
+else{
+document.getElementById('welcome').style.display='none'
+}
+}
+<!--视频放大js-->
+function f2(){
+if(document.getElementById('video').style.display=='none'){
+document.getElementById('video').style.display='block'
+}
+else{
+document.getElementById('video').style.display='none'
+}
+}
+
+<!--关闭视频-->
+function f3(){
+if(document.getElementById('video').style.display=='block'){
+document.getElementById('video').style.display='none'
+}
+
+}
+
+</script>
+
+<!--隐藏滚动条::-webkit-scrollbar-->
+
+<style type="text/css">
+html {
+height: 100%;
+width: 100%;
+}
+body {
+height: 100%;
+width: 100%;
+}
+::-webkit-scrollbar {
+            display: none;
+}
+
+span {
+	font-family: '微软雅黑';
+	font-size: 12pt;
+	color: #fff;
+	font-style: italic;
+
+}
+
+.sc00 {
+	font-weight: bold;
+	color:#00b5ff;
+	font-size: 15pt;
+}
+
+
+.sc0 {
+	font-weight: bold;
+}
+.sc1 {
+	color: #0000FF;
+}
+.sc2 {
+font-weight: bold;
+	color:#eee;
+	font-size: 20pt;
+	font-style:normal;
+}
+.sc3 {
+	color: #FF0000;
+	font-style:normal;
+}
+.sc4 {
+	font-weight: bold;
+	color:red;
+	font-size: 15pt;
+}
+.sc6 {
+	font-weight: bold;
+	color: #8000FF;
+}
+.sc8 {
+}
+.sc10 {
+	font-style: italic;
+	background: #FEFDE0;
+}
+</style>
+
+
+
+</head>
+<!--引入背景图-->
+<!-- <body background="{%static 'background1.png'%}" style="background-size: cover;width:100%;height:93%;"> -->
+
+<body  background="{%static 'bg.png'%}" bgcolor="#000000" style="background-size:55%;50%;background-repeat:no-repeat;background-position:55% 15%;" >
+<!--引入topbar-->
+<div  id="rrrr"  style="background:url({%static 'topbar.png'%});background-size: cover;width:100%;height:7%">
+
+    <div style="width:100%;height:100%; transform: translateY(30%);text-align: center;font-family: FZ;">
+        <span style="font-size: 30px;font-weight:bold;color:#fff;"  onclick="f3();s"> &nbsp&nbsp郑州工厂大数据展示平台 </span>
+    </div>
+</div>
+
+<div id="beijingse" style="width:100%;height:100%;position:absolute;left:0%;top:0%;background-color:rgba(0, 0, 0, 0.03);"></div>
+
+<!--引入车间图片，图片形式-->
+<!--  <div  style="width:50%;height:50%;position:absolute;left:28%;top:16%;">
+        <img src="{%static 'bg.png'%}" width="100%" height="100%"  />
+    
+    </div> -->
+
+
+
+ <!--<div id="beijingse" style="width:100%;height:100%;background-color:rgba(0, 0, 0, 0.13);"></div>-->
+<!--视频播放按钮-->
+<!--<div  style="width:2%;height:2%;position:absolute;left:63%;top:45%;">-->
+<!--<input type="button" value="点我播放" onclick="f2();s">-->
+
+<!--</div>-->
+
+
+<!--播放放大视频-->
+<!--<div id="video" style="width:45%;height:60%;position:absolute;left:27%;top:7%;display:none;" >-->
+
+<!--<video width="100%" height="100%" controls="controls"  preload="metadata">-->
+
+  <!--<source src="{%static 'movie.mp4'%}" type="video/mp4">-->
+  <!--<source src="{%static 'movie.ogg'%}" type="video/ogg">-->
+<!--</video>-->
+
+<!--</div>-->
+
+<!--小视频-->
+
+
+<!--欢迎页-->
+<!--欢迎按钮-->
+<div  style="width:2%;height:2%;position:absolute;left:73%;top:5%;">
+<input type="button" value="欢迎页" onclick="f1();s">
+
+</div>
+<!--欢迎语-->
+ <div id="welcome" style="display:block;position:absolute;left:35%;top:20%;" >
+<p style="font-size:70px;color:#fff;font-weight:bold;">热烈欢迎您莅临参观<br>&nbsp&nbsp上汽郑州工厂</p>
+</div>
+
+<!--荣誉标题-->
+<div id="biaoti" style="width:10%;height:3%;position:absolute;left:0%;top:5%;" >
+<span class="sc2">&nbsp&nbsp&nbsp公司荣誉</span>
+</div>
+<!--横线-->
+<div style="width:25%;position:absolute;left:0%;top:8%;background-color:rgba(0, 0, 0, 0.13)">
+<hr/>
+</div>
+
+
+<!--公司荣誉-->
+<div id=demo style="overflow:hidden; width:24.5%; height:50%;position:absolute;left:0%;top:10%;background-color:rgba(0, 0, 0, 0.13)">
+
+
+<!--<div id=demo1>-->
+<!--<img src="{%static 'test.jpg'%}"width="230" height="180">-->
+<!--<img src="{%static 'test.jpg'%}"width="230" height="180">-->
+<!--<img src="{%static 'test.jpg'%}"width="230" height="180">-->
+<!--<img src="{%static 'test.jpg'%}"width="230" height="180">-->
+    <!--<img src="{%static 'test.jpg'%}"width="230" height="180">-->
+        <!--<img src="{%static 'test.jpg'%}"width="230" height="180">-->
+<!--</div>-->
+   <div id=demo1>
+<img src="{%static '1.jpg'%}"width="230" height="180">
+<img src="{%static '2.jpg'%}"width="230" height="180">
+<img src="{%static '3.jpg'%}"width="230" height="180">
+<img src="{%static '4.jpg'%}"width="230" height="180">
+    <img src="{%static '5.jpg'%}"width="230" height="180">
+        <img src="{%static '6.jpg'%}"width="230" height="180">
+</div>
+
+
+
+
+<div id=demo2></div>
+</div>
+<script>
+var speed=30
+demo2.innerHTML=demo1.innerHTML
+function Marquee()
+{
+    if(demo2.offsetTop-demo.scrollTop<=0)
+    demo.scrollTop-=demo1.offsetHeight
+    else
+    {
+        demo.scrollTop++;
+    }
+}
+var MyMar=setInterval(Marquee,speed)
+demo.onmouseover=function(){clearInterval(MyMar)}
+demo.onmouseout=function(){MyMar=setInterval(Marquee,speed)}
+</script>
+
+
+<!--颜色随机-->
+<!--  color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);},    -->
+
+<!--定制颜色-->
+
+<!--color: function(params) {-->
+                    <!--var colorList = [-->
+                          <!--'#009688','#5FB878','#87CEFA','#00CED1','#00008B','#008B8B','#B8860B','#006400','#006400','#BDB76B','#8B008B','#556B2F'];-->
+                     <!--return colorList[params.dataIndex]-->
+                    <!--},-->
+<!--绿十字标题-->
+<div id="safe" style="width:10%;height:3%;position:absolute;left:77%;top:5%;" >
+<span class="sc2">安全</span>
+</div>
+
+<!--横线-->
+<div style="width:25%;position:absolute;left:77%;top:8%;background-color:rgba(0, 0, 0, 0.13)">
+<hr/>
+</div>
+ {% verbatim myblock %}
+
+<div id="app" style="width:100%;height:100%;">
+
+<!--绿十字-->
+ {% verbatim myblock %}
+<div  style="width:22%;height:25%;position:absolute;left:77%;top:10%;">
+
+     <div class="cross">
+            <div class="cross-item" v-for="(item, index) in
+ {% endverbatim myblock %}
+             {{ list }}
+ {% verbatim myblock %}
+" :key="index" :class="item ? 'show' : 'hide'" >
+                <div >
+				 <table >
+				  <tr >
+                      {% endverbatim myblock %}
+
+				    <td  v-if="item< {{ curday }}" bgcolor="green">
+     {% verbatim myblock %}
+                        {{item}}</td>
+					<td  v-else >{{item}}</td>
+				     </tr>
+				 </table>
+				</div>
+             </div>
+    </div>
+
+  </div>
+
+       <div   class="footer" style="width:10%;height:3%;position:absolute;left:87%;top:3%;">
+            <p>安全生产第 <span class="sc00">{{dateIndex}}</span> 天</p>
+
+
+    </div>
+        </div>
+{% endverbatim myblock %}
+
+
+ <script src="{%static 'vue.js'%}"></script>
+<script type="text/javascript" src="{%static 'index.js'%}"></script>
+
+
+
+
+
+
+
+
+
+
+<!--合理化建议-->
+<div id="suggest" style="width:22%;height:25%;position:absolute;left:77%;top:37%;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChartsuggest = echarts.init(document.getElementById('suggest'));
+
+    var option = {
+ title: {
+                text: '合理化建议',
+                textStyle: {
+
+                    color: "#eee",
+                    fontWeight: 'normal',
+
+                 },
+                left: "left"
+            },
+             backgroundColor:'rgba(0, 0, 0, 0.13)',
+          grid:{
+                    x:'10%',
+                    y:'20%',
+                    x2:'0%',
+                    y2:'10%',
+                    borderWidth:0
+                },
+
+    xAxis: {
+                     axisLabel: {
+                         color: '#FFFFFF',
+                          interval: 0,
+                  },
+        type: 'category',
+        data: ["1","2","3","4","5","6","7","8","9","10","11","12"]
+    },
+    yAxis: {
+            axisLabel: {
+                         color: '#FFFFFF',
+
+                  },
+
+            },
+series: [
+            {
+
+                type: 'bar',
+                                color: function(params) {
+                    var colorList = [
+                         '#009688','#5FB878','#87CEFA','#00CED1', '#009688','#5FB878','#87CEFA','#00CED1',  '#009688','#5FB878','#87CEFA','#00CED1' ];
+                     return colorList[params.dataIndex]
+                    },
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'top',
+
+
+                    }
+            },
+                data: {{ suggest }}
+            },
+
+
+
+
+            ]
+};
+
+    myChartsuggest.setOption(option);
+
+
+ </script>
+
+
+
+<!--大标题人员、质量、响应、成本-->
+<div style="width:3%;height:5%;position:absolute;left:0%;top:65%;text-align: center;">
+    <span class="sc2">人员</span>
+</div>
+
+<div style="width:3%;height:5%;position:absolute;left:24.5%;top:65%;text-align: center;">
+    <span class="sc2">质量</span>
+</div>
+
+<div style="width:3%;height:5%;position:absolute;left:49.5%;top:65%;text-align: center;">
+    <span class="sc2">响应</span>
+</div>
+
+<div style="width:3%;height:5%;position:absolute;left:75%;top:65%;text-align: center;">
+    <span class="sc2">成本</span>
+</div>
+
+<!--横线-->
+<div style="width:100%;position:absolute;left:0%;top:73%;background-color:rgba(0, 0, 0, 0.13)">
+<hr/>
+</div>
+
+<div style="width:100%;position:absolute;left:0%;top:68%;background-color:rgba(0, 0, 0, 0.13)">
+<hr/>
+</div>
+
+<div style="width:1%;height:30%;position:absolute;left:24%;top:68%;background-color:rgba(0, 0, 0, 0.13)">
+<hr width="1" size="310"/>
+</div>
+
+<div style="width:1%;height:30%;position:absolute;left:49%;top:68%;background-color:rgba(0, 0, 0, 0.13)">
+<hr width="1" size="310"/>
+</div>
+
+<div style="width:1%;height:30%;position:absolute;left:74.5%;top:68%;background-color:rgba(0, 0, 0, 0.13)">
+<hr width="1" size="310"/>
+</div>
+
+<!--标题-->
+
+
+<div style="width:12.5%;height:6%;position:absolute;left:0%;top:70%;background-color:rgba(0, 0, 0, 0.13);text-align: center;"> <span class="sc0">人员总规模</span>
+    <span class="sc00"> {{ p}}    </span> <span class="sc0">人</span>
+</div>
+
+<div style="width:12.5%;height:6%;position:absolute;left:12.5%;top:70%;background-color:rgba(0, 0, 0, 0.13);text-align: center;"> <span class="sc0">累计HPV</span>
+    <span class="sc00"> {{ HPV }}    </span> <span class="sc0">小时/台</span>
+</div>
+
+<div style="width:12.5%;height:6%;position:absolute;left:25%;top:70%;background-color:rgba(0, 0, 0, 0.13);text-align: center;"> <span class="sc0">当班累计一次通过率</span>
+    <span class="sc00"> 60    </span> <span class="sc0">%</span>
+</div>
+
+<div style="width:12.5%;height:6%;position:absolute;left:37.5%;top:70%;background-color:rgba(0, 0, 0, 0.13);text-align: center;"> <span class="sc0">Audit等级</span>
+    <span class="sc00"> 1.6    </span> <span class="sc0"></span>
+</div>
+
+
+<div style="width:12.5%;height:6%;position:absolute;left:49%;top:70%;background-color:rgba(0, 0, 0, 0.13);text-align: center;"> <span class="sc0">当班实时产量</span>
+    <span class="sc00"> {{  shift }}    </span> <span class="sc0">台</span>
+</div>
+
+<div style="width:12.5%;height:6%;position:absolute;left:62.5%;top:70%;background-color:rgba(0, 0, 0, 0.13);text-align: center;"> <span class="sc0">当月实时产量</span>
+    <span class="sc00"> {{ cu_month }}    </span> <span class="sc0">台</span>
+</div>
+
+
+<div style="width:12.5%;height:6%;position:absolute;left:74%;top:70%;background-color:rgba(0, 0, 0, 0.13);text-align: center;"> <span class="sc0">产值累计&nbsp;</span>
+    <span class="sc00"> {{sumvalue}}    </span> <span class="sc0">亿元</span>
+</div>
+
+
+<div style="width:12.5%;height:6%;position:absolute;left:87.5%;top:70%;background-color:rgba(0, 0, 0, 0.13);text-align: center;"> <span class="sc0">光伏节能</span>
+    <span class="sc00"> 26    </span> <span class="sc0">万元</span>
+</div>
+
+
+<!--人员统计-->
+ <div id="aa" style="width:12.5%;height:24%;position:absolute;left:0%;top:76%;">
+
+ </div>
+
+
+ <div id="aa1" style="width:12.5%;height:24%;position:absolute;left:0%;top:76%;">
+ </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+
+ var myChart3 = echarts.init(document.getElementById('aa'));
+
+
+option = {
+    title : {
+        text: '人员学历',
+        textStyle: {
+
+                    color: "#eee",
+                    fontWeight: 'normal',
+
+                 },
+                left: "left",
+        subtext: '',
+        x:'center'
+    },
+     backgroundColor:'rgba(0, 0, 0, 0.13)',
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+    show:false,
+    },
+    series : [
+        {
+            name: '人员学历',
+            type: 'pie',
+            radius: ['60%', '40%'],
+            center: ['50%', '60%'],
+            color: function(params) {
+                     var colorList = [
+                         '#009688','#5FB878','#87CEFA','#00FF00','#00CED1'];
+                     return colorList[params.dataIndex]
+                    },
+            data:[
+                {value:{{ zhongzhuan }}, name:'中专'},
+                {value:{{ dazhuan }}, name:'大专'},
+                {value:{{ benke }}, name:'本科'},
+                {value:{{ shuoshi }}, name:'硕士'},
+                {value:{{ qita }}, name:'其他'}
+            ],
+            itemStyle: {
+                normal: {//饼状图上的文本显示
+				label:{
+					show : true,
+					formatter: "{b} :\n {d}%",//数值和百分比
+					textStyle : {
+						fontSize : 12,
+						fontWeight : 'bolder'
+					}
+				}},
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+if (option && typeof option === "object") {
+    myChart3.setOption(option, true);
+}
+
+ </script>
+
+
+<!--HPV22-->
+ <div id="HPV" style="width:12.5%;height:24%;position:absolute;left:12.5%;top:76%;">
+ </div>
+
+        <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChartHPV = echarts.init(document.getElementById('HPV'));
+
+        // 指定图表的配置项和数据
+ var option = {
+ title: {
+                text: '当班出勤人数',
+                textStyle: {
+
+                    color: "#eee",
+                    fontWeight: 'normal',
+
+                 },
+                left: "left"
+            },
+             backgroundColor:'rgba(0, 0, 0, 0.13)',
+          grid:{
+                    x:'20%',
+                    y:'20%',
+                    x2:'10%',
+                    y2:'10%',
+                    borderWidth:1
+                },
+
+    xAxis: {
+                     axisLabel: {
+                         color: '#FFFFFF',
+                         interval: 0,
+                  },
+        type: 'category',
+        data: ['冲压', '车身', '油漆', '总装']
+    },
+    yAxis: {
+            axisLabel: {
+                         color: '#FFFFFF'
+                  },
+
+            },
+series: [
+            {
+
+                type: 'bar',
+                color: function(params) {
+                    var colorList = [
+                         '#009688','#5FB878','#87CEFA','#00CED1'];
+                     return colorList[params.dataIndex]
+                    },
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'top',
+
+
+                    }
+            },
+                data:  [120, 200, 150, 500]
+            },
+
+
+
+
+            ]
+};
+
+
+
+
+        // 使用刚指定的配置项和数据显示图表。
+
+        myChartHPV.setOption(option);
+    </script>
+
+
+<!--当班一次通过率-->
+ <div id="ONE" style="width:12.5%;height:24%;position:absolute;left:25%;top:76%;"></div>
+
+        <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChartONE = echarts.init(document.getElementById('ONE'));
+
+        // 指定图表的配置项和数据
+        option = {
+    title: {
+        text: '一次通过率',
+        subtext: '',
+         textStyle: {
+
+                    color: "#eee",
+                    fontWeight: 'normal',
+
+                 },
+                left: "left",
+    },
+     backgroundColor:'rgba(0, 0, 0, 0.13)',
+    grid:{
+                    x:'20%',
+                    y:'20%',
+                    x2:'10%',
+                    y2:'10%',
+                    borderWidth:1
+                },
+    tooltip: {
+        trigger: 'axis'
+    },
+
+    toolbox: {
+        show: false,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+     axisLabel: {
+                         color: '#FFFFFF',
+                         interval: 0,
+                  },
+        type: 'category',
+        boundaryGap: false,
+        data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+
+        type: 'value',
+        axisLabel: {
+            formatter: '{value}%',
+            color: '#FFFFFF'
+        }
+    },
+    series: [
+        {
+            name:'最高气温',
+            type:'line',
+            data:{{ onepass }},
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+
+        myChartONE.setOption(option);
+    </script>
+
+<!--audit-->
+ <div id="audit" style="width:12.5%;height:24%;position:absolute;left:37.5%;top:76%;background-color:rgba(0, 0, 0, 0.13);"></div>
+<div id="choujian" style="width:10%;height:3%;position:absolute;left:38.5%;top:74%;" >
+<p style="font-size:13pt;color:#eee;font-weight:normal;">当日抽检车辆</p>
+</div>
+<div id="chexing" style="width:10%;height:3%;position:absolute;left:42%;top:77%;" >
+<p style="font-size:13pt;color:#eee;font-weight:normal;">车型</p>
+</div>
+
+<div id="choujianchexing" style="width:10%;height:3%;position:absolute;left:38%;top:82%;background-color:rgba(0, 0, 0, 0.18);text-align: center;">
+<span style="font-size:10pt;color:#41d0f2;font-weight:normal;">名爵ZS SH</span>
+</div>
+
+<div id="peizhi" style="width:10%;height:3%;position:absolute;left:42%;top:85%;" >
+<p style="font-size:13pt;color:#eee;font-weight:normal;">配置</p>
+</div>
+
+<div id="peizhi1" style="width:10%;height:3%;position:absolute;left:38%;top:91%;background-color:rgba(0, 0, 0, 0.18);text-align: center;" >
+<span style="font-size:10pt;color:#41d0f2;font-weight:normal;">约克白CVT</span>
+</div>
+
+<div id="biaoti" style="width:10%;height:3%;position:absolute;left:50.5%;top:74%;" >
+<p style="font-size:13pt;color:#eee;font-weight:normal;">当班开动率</p>
+</div>
+
+<!--当班产量-->
+ <div id="offline" style="width:12.5%;height:24%;position:absolute;left:50%;top:76%;background-color:rgba(0, 0, 0, 0.13);">
+
+     <div id="PP" style="width:40%;height:3%;position:absolute;left:5.5%;top:25%;" >
+<span class="sc3" style="font-size:13pt;color:#eee;font-weight:normal;">冲压车间</span>
+ <span class="sc4" >{{ PR }}%</span>
+</div>
+       <div id="BS" style="width:40%;height:3%;position:absolute;left:50.5%;top:25%;" >
+<span class="sc3" style="font-size:13pt;color:#eee;font-weight:normal;">车身车间</span>
+            <span class="sc4" >{{ BS }}%</span>
+</div>
+
+       <div id="PS" style="width:40%;height:3%;position:absolute;left:5.5%;top:55%;" >
+<span class="sc3" style="font-size:13pt;color:#eee;font-weight:normal;">油漆车间</span>
+            <span class="sc4" >{{ PS }}%</span>
+</div>
+
+            <div id="GA" style="width:40%;height:3%;position:absolute;left:50.5%;top:55%;" >
+<span class="sc3" style="font-size:13pt;color:#eee;font-weight:normal;">总装车间</span>
+            <span class="sc4" >{{GA}}%</span>
+</div>
+
+ </div>
+
+
+
+<!--当月产量-->
+ <div id="month" style="width:12.5%;height:24%;position:absolute;left:62.5%;top:76%;"></div>
+
+        <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChartmonth = echarts.init(document.getElementById('month'));
+
+        // 指定图表的配置项和数据
+        var option = {
+ title: {
+                text: '月度产量',
+                textStyle: {
+
+                    color: "#eee",
+                    fontWeight: 'normal',
+
+                 },
+                left: "left"
+            },
+             backgroundColor:'rgba(0, 0, 0, 0.13)',
+          grid:{
+                    x:'19%',
+                    y:'20%',
+                    x2:'0%',
+                    y2:'10%',
+                    borderWidth:0
+                },
+
+    xAxis: {
+                     axisLabel: {
+                         color: '#FFFFFF',
+                          interval: 0,
+                  },
+        type: 'category',
+        data: {{ month1}}
+    },
+    yAxis: {
+            axisLabel: {
+                         color: '#FFFFFF',
+
+                  },
+
+            },
+series: [
+            {
+
+                type: 'bar',
+                <!--color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);},-->
+                color: function(params) {
+                    var colorList = [
+                         '#009688','#5FB878','#87CEFA','#00CED1', '#009688','#5FB878','#87CEFA','#00CED1',  '#009688','#5FB878','#87CEFA','#00CED1' ];
+                     return colorList[params.dataIndex]
+                    },
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'top',
+
+
+                    }
+            },
+                data: {{ month }}
+            },
+
+
+
+
+            ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+
+        myChartmonth.setOption(option);
+    </script>
+
+
+<!--月度产值-->
+ <div id="outvalue" style="width:12.5%;height:24%;position:absolute;left:75%;top:76%;"></div>
+
+        <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChartoutvalue = echarts.init(document.getElementById('outvalue'));
+
+         // 指定图表的配置项和数据
+   option = {
+    title: {
+        text: '月度产值（亿元）',
+        subtext: '',
+         textStyle: {
+
+                    color: "#eee",
+                    fontWeight: 'normal',
+
+                 },
+                left: "left",
+    },
+     backgroundColor:'rgba(0, 0, 0, 0.13)',
+    grid:{
+                    x:'20%',
+                    y:'20%',
+                    x2:'10%',
+                    y2:'10%',
+                    borderWidth:1
+                },
+    tooltip: {
+        trigger: 'axis'
+    },
+    xAxis: {
+        axisLabel: {
+                         color: '#FFFFFF',
+                         interval: 0,
+                  },
+        type: 'category',
+        data:{{month1}}
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+
+            color: '#FFFFFF'
+        }
+    },
+    series: [{
+        data:{{month_value}},
+        type: 'line',
+        label: {
+                    normal: {
+                    show: true,
+                    position: 'top',
+                    color: '#FFFFFF',
+
+                    }
+            },
+    }]
+};
+
+  <!--var option = {-->
+ <!--title: {-->
+                <!--text: '月度产值',-->
+                <!--textStyle: {-->
+
+                    <!--color: "#eee",-->
+                    <!--fontWeight: 'normal',-->
+
+                 <!--},-->
+                <!--left: "left"-->
+            <!--},-->
+             <!--backgroundColor:'rgba(0, 0, 0, 0.13)',-->
+          <!--grid:{-->
+                    <!--x:'19%',-->
+                    <!--y:'20%',-->
+                    <!--x2:'0%',-->
+                    <!--y2:'10%',-->
+                    <!--borderWidth:0-->
+                <!--},-->
+
+    <!--xAxis: {-->
+                     <!--axisLabel: {-->
+                         <!--color: '#FFFFFF',-->
+                          <!--interval: 0,-->
+                  <!--},-->
+        <!--type: 'category',-->
+        <!--data: {{ month1}}-->
+    <!--},-->
+    <!--yAxis: {-->
+            <!--axisLabel: {-->
+                         <!--color: '#FFFFFF',-->
+
+                  <!--},-->
+
+            <!--},-->
+<!--series: [-->
+            <!--{-->
+
+                <!--type: 'bar',-->
+                <!--&lt;!&ndash;color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);},&ndash;&gt;-->
+                <!--color: function(params) {-->
+                    <!--var colorList = [-->
+                         <!--'#009688','#5FB878','#87CEFA','#00CED1', '#009688','#5FB878','#87CEFA','#00CED1',  '#009688','#5FB878','#87CEFA','#00CED1' ];-->
+                     <!--return colorList[params.dataIndex]-->
+                    <!--},-->
+                  <!--label: {-->
+                    <!--normal: {-->
+                    <!--show: true,-->
+                    <!--position: 'top',-->
+
+
+                    <!--}-->
+            <!--},-->
+                <!--data: {{ month_value }}-->
+            <!--},-->
+
+
+
+
+            <!--]-->
+<!--};-->
+
+
+
+        // 使用刚指定的配置项和数据显示图表。
+
+        myChartoutvalue.setOption(option);
+    </script>
+
+<!--能源-->
+<div id="biaoti" style="width:10%;height:3%;position:absolute;left:87.5%;top:74%;" >
+<p style="font-size:13pt;color:#eee;font-weight:normal;">当月水电气总用量</p>
+</div>
+
+
+
+
+ <div id="energy" style="width:12.5%;height:24%;position:absolute;left:87.5%;top:76%;"></div>
+
+        <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChartenergy = echarts.init(document.getElementById('energy'));
+
+        // 指定图表的配置项和数据
+       var option = {
+    backgroundColor:'rgba(0, 0, 0, 0.13)',
+    tooltip : {
+        formatter: "{a} <br/>{c} {b}"
+    },
+    toolbox: {
+        show: false,
+        feature: {
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    series : [
+       {
+            name: '水',
+            type: 'gauge',
+			center: ['50%', '73%'],
+            radius: '50%',
+            min:0,
+            max:70,
+            <!--endAngle:45,-->
+            splitNumber:7,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    width: 3
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+                length:6,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto'
+                }
+            },
+            splitLine: {           // 分隔线
+                length:10,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    color: 'auto'
+                }
+            },
+            pointer: {
+                width:5
+            },
+            title: {
+                offsetCenter: [0, '-30%'],
+                textStyle: {
+                       fontSize: 2,
+                    color: "#eee",
+
+                 },
+                  fontsize:2,// x, y，单位px
+            },
+            detail: {
+                // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                fontWeight: 'bolder',
+                fontSize:10,
+                offsetCenter: [0, '70%'],
+            },
+            data:[{value: 41.5, name: 'K·t'}]
+        },
+       {
+            name: '电',
+            type: 'gauge',
+			center: ['24%', '30%'],    // 默认全局居中
+            radius: '43%',
+            min:0,
+            max:7,
+            <!--endAngle:45,-->
+            splitNumber:7,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    width: 3
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+                length:6,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto'
+                }
+            },
+            splitLine: {           // 分隔线
+                length:10,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    color: 'auto'
+                }
+            },
+            pointer: {
+                width:5
+            },
+            title: {
+                offsetCenter: [0, '-25%'],
+                        textStyle: {
+                     fontSize: 2,
+                    color: "#eee",
+
+                 },// x, y，单位px
+            },
+            detail: {
+                // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                fontWeight: 'bolder',
+                fontSize:10,
+                offsetCenter: [0, '70%'],
+            },
+            data:[{value: 6, name: 'k·MWh'}]
+        },
+
+         {
+            name: '气',
+            type: 'gauge',
+            center: ['74%', '30%'],    // 默认全局居中
+            radius: '43%',
+
+            min:0,
+            max:7,
+            <!--endAngle:45,-->
+            splitNumber:7,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    width: 3
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+                length:6,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto'
+                }
+            },
+            splitLine: {           // 分隔线
+                length:10,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    color: 'auto'
+                }
+            },
+            pointer: {
+                width:5
+            },
+            title: {
+                offsetCenter: [0, '-30%'],
+                        textStyle: {
+                    fontSize: 1,
+                    color: "#eee",
+
+                 },// x, y，单位px
+            },
+            detail: {
+                // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                fontWeight: 'bolder',
+                fontSize:10,
+                offsetCenter: [0, '70%'],
+            },
+            data:[{value: 1.5, name: 'k·m³'}]
+        },
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+
+        myChartenergy.setOption(option);
+    </script>
+
+
+</body>
+</html>

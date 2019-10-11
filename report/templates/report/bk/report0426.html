@@ -1,0 +1,914 @@
+{% load staticfiles %}
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>可视化大数据展示平台</title>
+    <!-- 引入 echarts.js -->
+    <script src="{%static 'echarts.js'%}"></script>
+<!--<link href="{%static 'main.d77a81dd.css'%}" rel="stylesheet" type="text/css"/>-->
+
+
+<script type="text/javascript">
+function f1(){
+if(document.getElementById('welcome').style.display=='none'){
+document.getElementById('welcome').style.display='block'
+}
+else{
+document.getElementById('welcome').style.display='none'
+}
+}
+</script>
+
+<style>
+html {
+height: 100%;
+width: 100%;
+}
+body {
+height: 100%;
+width: 100%;
+}
+</style>
+
+</head>
+<body background="{%static 'background.png'%}" style="background-size: cover;width:100%;height:100%;min-width:1152px;min-height:750px;position:relative;">
+<div  id="rrrr"  style="background:url({%static 'topbar.png'%});background-size: cover;position: relative;width:100%;height:5%">
+
+    <div style="width:100%;height:100%; transform: translateY(30%);text-align: center;font-family: FZ;">
+        <span style="font-size: 30px;font-weight:bold;color:#fff;"> 郑州工厂大数据展示平台 </span>
+    </div>
+   </div>
+<!--欢迎页-->
+<!--欢迎按钮-->
+<div  style="width:2%;height:2%;position:absolute;left:70%;top:5%;">
+<input type="button" value="欢迎页" onclick="f1();s">
+
+</div>
+<!--欢迎语-->
+ <div id="welcome" style="display:none;position:absolute;left:27%;top:20%;" >
+<p style="font-size:70px;color:red;font-weight:bold;">热烈欢迎某某领导莅临参观<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp上汽郑州工厂</p>
+</div>
+
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width:22%;height:30%;position:absolute;left:0.5%;top:3%;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '每小时产量',
+                textStyle: {
+
+
+                    color: "#fff",
+
+                 },
+                left: "left"
+            },
+            backgroundColor:'rgba(0, 0, 0, 0.13)',
+            tooltip: {},
+            legend: {
+              textStyle: {
+                color: '#FFFFFF'
+                },
+                data:['ZS11','AP31']
+            },
+            xAxis: {
+                 axisLabel: {
+                         color: '#FFFFFF'
+                  },
+                data: ["8点","9点","10点","11点","12点","13点"]
+
+            },
+            yAxis: {
+            axisLabel: {
+                         color: '#FFFFFF'
+                  },
+
+            },
+            series: [
+            {
+                name: 'ZS11',
+                type: 'bar',
+                stack:'sum',
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'inside'
+                    }
+            },
+                data: [300,10,200 ,10, 300, 20]
+            },
+            {
+                name: 'AP31',
+                type: 'bar',
+                stack:'sum',
+                 color: ['#00CED1'],
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'inside'
+                    }
+             },
+                data: [200,10,10 ,300, 10, 20]
+            },
+
+
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+
+        myChart.setOption(option);
+    </script>
+
+<!--月度产量-->
+<div id="month" style="width:22%;height:30%;position:absolute;left:0.5%;top:36%;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChart11 = echarts.init(document.getElementById('month'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '月度产量',
+                textStyle: {
+
+                    color: "#eee",
+
+                 },
+                left: "left"
+            },
+            backgroundColor:'rgba(0, 0, 0, 0.13)',
+            tooltip: {},
+            legend: {
+              textStyle: {
+                color: '#FFFFFF'
+                },
+                data:['ZS11','AP31']
+            },
+            xAxis: {
+                 axisLabel: {
+                         color: '#FFFFFF'
+                  },
+                data: ["8点","9点","10点","11点","12点","13点"]
+
+            },
+            yAxis: {
+            axisLabel: {
+                         color: '#FFFFFF'
+                  },
+
+            },
+            series: [
+            {
+                name: 'ZS11',
+                type: 'bar',
+                stack:'sum',
+                 color: ['#3398DB'],
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'inside'
+                    }
+            },
+                data: [300,10,200 ,10, 300, 20]
+            },
+            {
+                name: 'AP31',
+                type: 'bar',
+                stack:'sum',
+                 color: ['#00CED1'],
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'inside'
+                    }
+             },
+                data: [200,10,10 ,300, 10, 20]
+            },
+
+
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+
+        myChart11.setOption(option);
+    </script>
+
+
+
+
+
+<!--人员统计-->
+ <div id="aa" style="width:22%;height:30%;position:absolute;left:0.5%;top:70%;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+
+ var myChart3 = echarts.init(document.getElementById('aa'));
+
+
+var weatherIcons = {
+    'Sunny': './data/asset/img/weather/sunny_128.png',
+    'Cloudy': './data/asset/img/weather/cloudy_128.png',
+    'Showers': './data/asset/img/weather/showers_128.png'
+};
+var option = {
+    title: {
+        text: '人员统计',
+        subtext: '',
+        left: 'left',
+                        textStyle: {
+
+                    color: "#eee",
+
+                 }
+    },
+     backgroundColor:'rgba(0, 0, 0, 0.13)',
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+         top: 'middle',
+        bottom: 10,
+        left: 'left',
+         textStyle: {
+                color: '#FFFFFF'
+                },
+        data: ['中专', '大专','本科','研究生','博士']
+    },
+    series : [
+        {
+            type: 'pie',
+            radius : '65%',
+            center: ['40%', '50%'],
+            selectedMode: 'single',
+            data:[
+                {
+                    value:1200,
+                    name: '中专',
+                    label: {
+                        normal: {
+                            formatter: [
+                                '{title|{b}}{abg|}',
+                                '  {weatherHead|社招}{valueHead|校招}{rateHead|比例}',
+                                '{hr|}',
+                                '  {Sunny|500}{value|500}{rate|1:1}',
+                            ].join('\n'),
+                            backgroundColor: '#eee',
+                            borderColor: '#777',
+                            borderWidth: 1,
+                            borderRadius: 4,
+                            rich: {
+                                title: {
+                                    color: '#eee',
+                                    align: 'center'
+                                },
+                                abg: {
+                                    backgroundColor: '#333',
+                                    width: '100%',
+                                    align: 'right',
+                                    height: 25,
+                                    borderRadius: [2, 2, 0, 0]
+                                },
+                                Sunny: {
+                                    height: 30,
+                                    align: 'left',
+
+                                },
+
+                                weatherHead: {
+                                    color: '#333',
+                                    height: 24,
+                                    align: 'left'
+                                },
+                                hr: {
+                                    borderColor: '#777',
+                                    width: '100%',
+                                    borderWidth: 0.2,
+                                    height: 0
+                                },
+                                value: {
+                                    width: 5,
+                                    padding: [0, 20, 0, 30],
+                                    align: 'left'
+                                },
+                                valueHead: {
+                                    color: '#333',
+                                    width: 10,
+                                    padding: [0, 20, 0, 30],
+                                    align: 'center'
+                                },
+                                rate: {
+                                    width: 10,
+                                    align: 'left',
+                                    padding: [0, 10, 0, 10]
+                                },
+                                rateHead: {
+                                    color: '#333',
+                                    width: 20,
+                                    align: 'center',
+                                    padding: [0, 10, 0, 0]
+                                }
+                            }
+                        }
+                    }
+                },
+                {value:535, name: '大专'},
+                {value:510, name: '本科'},
+                {value:634, name: '研究生'},
+                {value:735, name: '博士'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart3.setOption(option, true);
+}
+
+ </script>
+
+<!--一次通过率22-->
+
+<div id="one" style="width:22%;height:30%;position:absolute;left:24%;top:70%;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChart22 = echarts.init(document.getElementById('one'));
+
+var option = {
+    title: {
+        text: '一次通过率',
+        subtext: '',
+            textStyle: {
+
+                    color: "#eee",
+
+                 },
+        left: "left"
+      },
+      backgroundColor:'rgba(0, 0, 0, 0.13)',
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+    textStyle: {
+                color: '#FFFFFF'
+                },
+        data:['ZS11','AP31']
+    },
+    toolbox: {
+
+        feature: {
+
+            magicType: {type: ['line', 'bar']},
+
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        axisLabel: {
+                         color: '#FFFFFF'
+                  },
+        data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+
+        axisLabel: {
+
+            color: '#FFFFFF'
+        }
+    },
+    series: [
+        {
+            name:'ZS11',
+            type:'line',
+            data:[0.9, 0.8, 0.85, 0.85, 0.85, 0.85, 0.85],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'AP31',
+            type:'line',
+            data:[0.4, 0.1, 0.2, 0.5, 0.3, 0.6, 0.9],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                     {type: 'min', name: '最小值'}
+                    <!--{name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}-->
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'},
+                    [{
+                        symbol: 'none',
+                        x: '90%',
+                        yAxis: 'max'
+                    }, {
+                        symbol: 'circle',
+                        label: {
+                            normal: {
+                                position: 'start',
+                                formatter: '最大值'
+                            }
+                        },
+                        type: 'max',
+                        name: '最高点'
+                    }]
+                ]
+            }
+        }
+    ]
+};
+;
+ myChart22.setOption(option, true);
+</script>
+
+
+ <!--车间停线33-->
+
+<div id="lineoff" style="width:22%;height:63%;position:absolute;left:77%;top:3%;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChart33 = echarts.init(document.getElementById('lineoff'));
+option = {
+    title: {
+        text: '车间停线',
+        subtext: '',
+            textStyle: {
+
+                    color: "#eee",
+
+                 },
+        left: "left"
+      },
+      backgroundColor:'rgba(0, 0, 0, 0.13)',
+        legend: {
+                orient: 'horizontal',
+        top:20,
+        bottom: 10,
+        left: 'center',
+         textStyle: {
+                color: '#FFFFFF'
+                }
+                },
+        tooltip: {
+            trigger: 'axis',
+            showContent: false
+        },
+        dataset: {
+            source: [
+                ['时间', '周一', '周二', '周三', '周四', '周五', '周六','周日'],
+                ['内饰一', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7,88],
+                ['内饰二', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1,66],
+                ['底盘一', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5,44],
+                ['底盘二', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1,77],
+                ['底盘三', 35.2, 27.1, 19.2, 42.4, 33.9, 19.1,57],
+
+            ]
+        },
+        xAxis: {type: 'category',
+        axisLabel: {
+
+            color: '#FFFFFF'
+        }
+        },
+        yAxis: {gridIndex: 0,
+        axisLabel: {
+
+            color: '#FFFFFF'
+        }
+        },
+        grid: {top: '55%'},
+        series: [
+            {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+            {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+            {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+            {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+
+            {
+                type: 'pie',
+                id: 'pie',
+                radius: '30%',
+                center: ['50%', '28%'],
+                label: {
+                    formatter: '{b} ({d}%)'
+                },
+                encode: {
+                    itemName: '时间',
+                    value: '周一',
+                    tooltip: '周一'
+                }
+            }
+        ]
+    };
+
+    myChart33.on('updateAxisPointer', function (event) {
+        var xAxisInfo = event.axesInfo[0];
+        if (xAxisInfo) {
+            var dimension = xAxisInfo.value + 1;
+            myChart33.setOption({
+                series: {
+                    id: 'pie',
+                    label: {
+                        formatter: '{b}({d}%)'
+                    },
+                    encode: {
+                        value: dimension,
+                        tooltip: dimension
+                    }
+                }
+            });
+        }
+    });
+
+    myChart33.setOption(option);
+
+
+ </script>
+<!--环保44-->
+<!--<div id="envir" style="width:22%;height:30%;position:absolute;left:77%;top:70%;"></div>-->
+<div id="envir" style="width:22%;height:30%;position:absolute;left:77%;top:70%;" onClick="javascript:window.open('envir','_parent')"></div>
+<div id='tttt'> </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChart44 = echarts.init(document.getElementById('envir'));
+var dataBJ = [
+    [55,9,56,0.46,18,6,1],
+    [25,11,21,0.65,34,9,2],
+    [56,7,63,0.3,14,5,3],
+    [33,7,29,0.33,16,6,4],
+    [42,24,44,0.76,40,16,5],
+    [82,58,90,1.77,68,33,6],
+    [74,49,77,1.46,48,27,7],
+    [78,55,80,1.29,59,29,8],
+    [267,216,280,4.8,108,64,9],
+    [185,127,216,2.52,61,27,10],
+    [39,19,38,0.57,31,15,11],
+    [41,11,40,0.43,21,7,12],
+    [64,38,74,1.04,46,22,13],
+    [108,79,120,1.7,75,41,14],
+    [108,63,116,1.48,44,26,15],
+    [33,6,29,0.34,13,5,16],
+    [94,66,110,1.54,62,31,17],
+    [186,142,192,3.88,93,79,18],
+    [57,31,54,0.96,32,14,19],
+    [22,8,17,0.48,23,10,20],
+    [39,15,36,0.61,29,13,21],
+    [94,69,114,2.08,73,39,22],
+    [99,73,110,2.43,76,48,23],
+    [31,12,30,0.5,32,16,24],
+    [42,27,43,1,53,22,25],
+    [154,117,157,3.05,92,58,26],
+    [234,185,230,4.09,123,69,27],
+    [160,120,186,2.77,91,50,28],
+    [134,96,165,2.76,83,41,29],
+    [52,24,60,1.03,50,21,30],
+    [46,5,49,0.28,10,6,31]
+];
+
+var dataGZ = [
+    [26,37,27,1.163,27,13,1],
+    [85,62,71,1.195,60,8,2],
+    [78,38,74,1.363,37,7,3],
+    [21,21,36,0.634,40,9,4],
+    [41,42,46,0.915,81,13,5],
+    [56,52,69,1.067,92,16,6],
+    [64,30,28,0.924,51,2,7],
+    [55,48,74,1.236,75,26,8],
+    [76,85,113,1.237,114,27,9],
+    [91,81,104,1.041,56,40,10],
+    [84,39,60,0.964,25,11,11],
+    [64,51,101,0.862,58,23,12],
+    [70,69,120,1.198,65,36,13],
+    [77,105,178,2.549,64,16,14],
+    [109,68,87,0.996,74,29,15],
+    [73,68,97,0.905,51,34,16],
+    [54,27,47,0.592,53,12,17],
+    [51,61,97,0.811,65,19,18],
+    [91,71,121,1.374,43,18,19],
+    [73,102,182,2.787,44,19,20],
+    [73,50,76,0.717,31,20,21],
+    [84,94,140,2.238,68,18,22],
+    [93,77,104,1.165,53,7,23],
+    [99,130,227,3.97,55,15,24],
+    [146,84,139,1.094,40,17,25],
+    [113,108,137,1.481,48,15,26],
+    [81,48,62,1.619,26,3,27],
+    [56,48,68,1.336,37,9,28],
+    [82,92,174,3.29,0,13,29],
+    [106,116,188,3.628,101,16,30],
+    [118,50,0,1.383,76,11,31]
+];
+
+var dataSH = [
+    [91,45,125,0.82,34,23,1],
+    [65,27,78,0.86,45,29,2],
+    [83,60,84,1.09,73,27,3],
+    [109,81,121,1.28,68,51,4],
+    [106,77,114,1.07,55,51,5],
+    [109,81,121,1.28,68,51,6],
+    [106,77,114,1.07,55,51,7],
+    [89,65,78,0.86,51,26,8],
+    [53,33,47,0.64,50,17,9],
+    [80,55,80,1.01,75,24,10],
+    [117,81,124,1.03,45,24,11],
+    [99,71,142,1.1,62,42,12],
+    [95,69,130,1.28,74,50,13],
+    [116,87,131,1.47,84,40,14],
+    [108,80,121,1.3,85,37,15],
+    [134,83,167,1.16,57,43,16],
+    [79,43,107,1.05,59,37,17],
+    [71,46,89,0.86,64,25,18],
+    [97,71,113,1.17,88,31,19],
+    [84,57,91,0.85,55,31,20],
+    [87,63,101,0.9,56,41,21],
+    [104,77,119,1.09,73,48,22],
+    [87,62,100,1,72,28,23],
+    [168,128,172,1.49,97,56,24],
+    [65,45,51,0.74,39,17,25],
+    [39,24,38,0.61,47,17,26],
+    [39,24,39,0.59,50,19,27],
+    [93,68,96,1.05,79,29,28],
+    [188,143,197,1.66,99,51,29],
+    [174,131,174,1.55,108,50,30],
+    [187,143,201,1.39,89,53,31]
+];
+
+var lineStyle = {
+    normal: {
+        width: 1,
+        opacity: 0.5
+    }
+};
+
+var option = {
+   backgroundColor:'rgba(0, 0, 0, 0.13)',
+    title: {
+        text: '环保',
+        left: 'left',
+        textStyle: {
+            color: '#fff'
+        }
+    },
+    legend: {
+        orient: 'vertical',
+         top: 'middle',
+        bottom: 10,
+        left: 'left',
+
+        data: ['郑州', '上海', '宁德'],
+        itemGap: 20,
+        left:'left',
+        textStyle: {
+            color: '#fff',
+            fontSize: 14
+        },
+        selectedMode: 'single'
+    },
+    <!--// visualMap: {-->
+    <!--//     show: true,-->
+    <!--//     min: 0,-->
+    <!--//     max: 20,-->
+    <!--//     dimension: 6,-->
+    <!--//     inRange: {-->
+    <!--//         colorLightness: [0.5, 0.8]-->
+    <!--//     }-->
+    <!--// },-->
+    radar: {
+        indicator: [
+            {name: 'AQI', max: 300},
+            {name: 'PM2.5', max: 250},
+            {name: 'PM10', max: 300},
+            {name: 'CO', max: 5},
+            {name: 'NO2', max: 200},
+            {name: 'SO2', max: 100}
+        ],
+        shape: 'circle',
+        splitNumber: 5,
+        name: {
+            textStyle: {
+                color: 'rgb(238, 197, 102)'
+            }
+        },
+        splitLine: {
+            lineStyle: {
+                color: [
+                    'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                    'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                    'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                ].reverse()
+            }
+        },
+        splitArea: {
+            show: false
+        },
+        axisLine: {
+            lineStyle: {
+                color: 'rgba(238, 197, 102, 0.5)'
+            }
+        }
+    },
+    series: [
+        {
+            name: '郑州',
+            type: 'radar',
+            lineStyle: lineStyle,
+            data: dataBJ,
+            symbol: 'none',
+            itemStyle: {
+                normal: {
+                    color: '#F9713C'
+                }
+            },
+            areaStyle: {
+                normal: {
+                    opacity: 0.1
+                }
+            }
+        },
+        {
+            name: '上海',
+            type: 'radar',
+            lineStyle: lineStyle,
+            data: dataSH,
+            symbol: 'none',
+            itemStyle: {
+                normal: {
+                    color: '#B3E4A1'
+                }
+            },
+            areaStyle: {
+                normal: {
+                    opacity: 0.05
+                }
+            }
+        },
+        {
+            name: '宁德',
+            type: 'radar',
+            lineStyle: lineStyle,
+            data: dataGZ,
+            symbol: 'none',
+            itemStyle: {
+                normal: {
+                    color: 'rgb(238, 197, 102)'
+                }
+            },
+            areaStyle: {
+                normal: {
+                    opacity: 0.05
+                }
+            }
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart44.setOption(option, true);
+}
+       </script>
+
+<!--中国汽车销售数据55-->
+<div id="vehsale" style="width:28%;height:30%;position:absolute;left:48%;top:70%;" ></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例字体
+        var myChart55 = echarts.init(document.getElementById('vehsale'));
+var option = {
+   backgroundColor:'rgba(0, 0, 0, 0.13)',
+    title : {
+        text: '中国汽车销售数据',
+        subtext: '',
+         left: 'left',
+        textStyle: {
+            color: '#fff'
+        }
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+     textStyle: {
+                color: '#FFFFFF'
+                },
+        data:['轿车','SUV']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            magicType : {show: true, type: ['line', 'bar']},
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+            axisLabel: {
+                         color: '#FFFFFF'
+                  },
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel: {
+                         color: '#FFFFFF'
+                  },
+        }
+    ],
+    series : [
+        {
+            name:'轿车',
+            type:'bar',
+            stack:'sum',
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'inside'
+                    }
+                    },
+            data:[30, 20, 100, 400, 300, 500, 400, 300, 300, 20.0, 700, 200],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'SUV',
+            type:'bar',
+            stack:'sum',
+                  label: {
+                    normal: {
+                    show: true,
+                    position: 'inside'
+                    }
+                    },
+            data:[400, 20, 100, 100, 500, 800, 100, 400, 600, 30.0, 700, 200],
+            markPoint : {
+                data : [
+                    {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183},
+                    {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart55.setOption(option, true);
+}
+
+
+
+
+
+
+
+
+       </script>
+</body>
+</html>
